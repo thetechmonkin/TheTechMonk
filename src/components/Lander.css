@@ -1,5 +1,15 @@
-.section-container {
-  height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lander {
+  min-height: 100vh;
   background:
     linear-gradient(
       to right,
@@ -9,4 +19,147 @@
       rgba(232, 64, 12, 0) 72%
     ),
     #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 3rem;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.lander__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;  margin-top: 10rem;}
+
+/* ── Text ── */
+.lander__text {
+  flex: 0 0 38%;
+  max-width: 400px;
+  padding-right: 1rem;
+}
+.lander__hi {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f0e8e0;
+  line-height: 1.2;
+}
+.lander__name {
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.3rem;
+}
+.lander__role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #a855f7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+.lander__desc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240, 230, 220, 0.42);
+  margin-bottom: 1.6rem;
+  max-width: 320px;
+}
+.lander__cta {
+  display: flex;
+  gap: 0.8rem;
+}
+.lbtn {
+  padding: 0.68rem 1.5rem;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.lbtn--fill {
+  background: #7c3aed;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45);
+}
+.lbtn--fill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(124, 58, 237, 0.6);
+}
+.lbtn--outline {
+  background: transparent;
+  color: rgba(240, 225, 210, 0.8);
+  border: 1.5px solid rgba(232, 64, 12, 0.3);
+}
+.lbtn--outline:hover {
+  border-color: #e8400c;
+  color: #ff6b35;
+  transform: translateY(-2px);
+}
+
+/* ── Stage: 3-layer stack ── */
+.lander__stage {
+  margin-right: 2rem;
+  flex: 0 0 680px;
+  position: relative;
+  /* Aspect ratio matches viewBox 800:640 = 5:4 */
+  aspect-ratio: 800 / 640;
+  max-width: 620px;
+  width: 100%;
+}
+
+/* All three layers fill the stage exactly */
+.lander__svg,
+.lander__monk {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lander__svg--back {
+  z-index: 1;
+  overflow: visible;
+}
+.lander__monk {
+  z-index: 2;
+  object-fit: contain;
+  pointer-events: none;
+}
+.lander__svg--front {
+  z-index: 3;
+  overflow: visible;
+}
+
+@media (max-width: 800px) {
+  .lander__inner {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .lander__text {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  .lander__cta {
+    justify-content: center;
+  }
+  .lander__stage {
+    max-width: 480px;
+  }
 }
