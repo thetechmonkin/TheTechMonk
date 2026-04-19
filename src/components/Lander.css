@@ -21,10 +21,51 @@
     #0a0a0a;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 2rem 3rem;
+  justify-content: space-between;
+  padding: 2rem 6rem;
   overflow: hidden;
   font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+/* Status Badge */
+.status-badge {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  z-index: 10;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px #22c55e,
+    0 0 20px #22c55e,
+    0 0 30px #22c55e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .lander__inner {
@@ -33,13 +74,15 @@
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;
-  gap: 2rem;  margin-top: 10rem;}
+  gap: 2rem;
+  margin-top: 10rem;
+}
 
 /* ── Text ── */
 .lander__text {
+  margin-top: 10rem;
   flex: 0 0 38%;
   max-width: 400px;
-  padding-right: 1rem;
 }
 .lander__hi {
   font-size: 1.4rem;
@@ -112,7 +155,6 @@
 
 /* ── Stage: 3-layer stack ── */
 .lander__stage {
-  margin-right: 2rem;
   flex: 0 0 680px;
   position: relative;
   /* Aspect ratio matches viewBox 800:640 = 5:4 */

@@ -227,6 +227,12 @@ function OrbitIcon({
 export default function Lander() {
   return (
     <section className="lander">
+      {/* Status Badge */}
+      <div className="status-badge">
+        <div className="status-dot"></div>
+        <span>Available for hire</span>
+      </div>
+
       <div className="lander__inner">
         {/* ── LEFT TEXT ── */}
         <div className="lander__text">
