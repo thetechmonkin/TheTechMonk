@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap");
 
+:root {
+  --primary: rgb(200, 55, 10);
+  --primary-soft: rgba(200, 55, 10, 0.6);
+  --primary-dark: rgb(150, 40, 8);
+  --primary-glow: rgba(200, 55, 10, 0.25);
+}
+
 *,
 *::before,
 *::after {
@@ -13,10 +20,10 @@
   background:
     linear-gradient(
       to right,
-      rgba(232, 64, 12, 0.055) 0%,
-      rgba(232, 64, 12, 0.028) 22%,
-      rgba(232, 64, 12, 0.01) 42%,
-      rgba(232, 64, 12, 0) 72%
+      rgba(200, 55, 10, 0.05) 0%,
+      rgba(200, 55, 10, 0.025) 25%,
+      rgba(200, 55, 10, 0.01) 45%,
+      rgba(200, 55, 10, 0) 70%
     ),
     #0a0a0a;
   display: flex;
@@ -39,7 +46,7 @@
   background: rgba(0, 0, 0, 0.8);
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(200, 55, 10, 0.3);
   font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
@@ -49,23 +56,17 @@
 .status-dot {
   width: 8px;
   height: 8px;
-  background: #22c55e;
+  background: var(--primary);
   border-radius: 50%;
   box-shadow:
-    0 0 10px #22c55e,
-    0 0 20px #22c55e,
-    0 0 30px #22c55e;
+    0 0 6px var(--primary),
+    0 0 12px var(--primary);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .lander__inner {
@@ -84,31 +85,40 @@
   flex: 0 0 38%;
   max-width: 400px;
 }
+
 .lander__hi {
   font-size: 1.4rem;
   font-weight: 600;
   color: #f0e8e0;
   line-height: 1.2;
 }
+
 .lander__name {
   font-size: clamp(2.8rem, 5vw, 4.6rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed);
+  background: linear-gradient(
+    135deg,
+    #ff7a45,
+    rgb(200, 55, 10),
+    #8a2a07
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 0.3rem;
 }
+
 .lander__role {
   font-size: 1rem;
   font-weight: 600;
-  color: #a855f7;
+  color: var(--primary-soft);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 0.9rem;
 }
+
 .lander__desc {
   font-size: 0.9rem;
   font-weight: 300;
@@ -117,10 +127,12 @@
   margin-bottom: 1.6rem;
   max-width: 320px;
 }
+
 .lander__cta {
   display: flex;
   gap: 0.8rem;
 }
+
 .lbtn {
   padding: 0.68rem 1.5rem;
   border-radius: 8px;
@@ -129,41 +141,41 @@
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .lbtn--fill {
-  background: #7c3aed;
+  background: var(--primary);
   color: #fff;
-  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45);
+  box-shadow: 0 4px 14px var(--primary-glow);
 }
+
 .lbtn--fill:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(124, 58, 237, 0.6);
+  box-shadow: 0 6px 20px rgba(200, 55, 10, 0.4);
 }
+
 .lbtn--outline {
   background: transparent;
   color: rgba(240, 225, 210, 0.8);
-  border: 1.5px solid rgba(232, 64, 12, 0.3);
+  border: 1.5px solid rgba(200, 55, 10, 0.3);
 }
+
 .lbtn--outline:hover {
-  border-color: #e8400c;
-  color: #ff6b35;
+  border-color: var(--primary);
+  color: #ff7a45;
   transform: translateY(-2px);
 }
 
-/* ── Stage: 3-layer stack ── */
+/* ── Stage ── */
 .lander__stage {
   flex: 0 0 680px;
   position: relative;
-  /* Aspect ratio matches viewBox 800:640 = 5:4 */
   aspect-ratio: 800 / 640;
   max-width: 620px;
   width: 100%;
 }
 
-/* All three layers fill the stage exactly */
 .lander__svg,
 .lander__monk {
   position: absolute;
@@ -176,21 +188,25 @@
   z-index: 1;
   overflow: visible;
 }
+
 .lander__monk {
   z-index: 2;
   object-fit: contain;
   pointer-events: none;
 }
+
 .lander__svg--front {
   z-index: 3;
   overflow: visible;
 }
 
+/* Responsive */
 @media (max-width: 800px) {
   .lander__inner {
     flex-direction: column-reverse;
     gap: 1rem;
   }
+
   .lander__text {
     flex: none;
     width: 100%;
@@ -198,9 +214,11 @@
     padding: 0;
     text-align: center;
   }
+
   .lander__cta {
     justify-content: center;
   }
+
   .lander__stage {
     max-width: 480px;
   }

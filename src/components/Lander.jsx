@@ -237,7 +237,7 @@ export default function Lander() {
         {/* ── LEFT TEXT ── */}
         <div className="lander__text">
           <p className="lander__hi">Hi, I'm</p>
-          <h1 className="lander__name">Saurabh Pandey</h1>
+          <h1 className="lander__name">SAURABH PANDEY</h1>
           <h2 className="lander__role">Software Developer</h2>
           <p className="lander__desc">
             Crafting code to build creative and efficient solutions.
